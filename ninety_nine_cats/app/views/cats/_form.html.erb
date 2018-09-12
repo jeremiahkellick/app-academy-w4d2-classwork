@@ -1,0 +1,37 @@
+<ul>
+  <% cat.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+<label> Name: 
+  <input type="text" name="cat[name]" value="<%= cat.name %>">
+</label><br>
+<label> Sex:<br>
+  <input
+    name="cat[sex]"
+    type="radio"
+    value="M"
+    <%= cat.sex == "M" ? "checked" : "" %>
+  >Male<br>
+  <input 
+    name="cat[sex]" 
+    type="radio" 
+    value="F"
+    <%= cat.sex == "F" ? "checked" : "" %>
+  >Female<br>
+</label><br>
+<label> Color: 
+  <select name="cat[color]">
+    <option disabled <%= cat.color.nil? ? "selected" : "" %>>Choose One</option>
+    <option value="Black" <%= cat.color == "Black" ? "selected" : "" %>>Black</option>
+    <option value="White" <%= cat.color == "White" ? "selected" : "" %>>White</option>
+    <option value="Orange" <%= cat.color == "Orange" ? "selected" : "" %>>Orange</option>
+    <option value="Brown" <%= cat.color == "Brown" ? "selected" : "" %>>Brown</option>
+  </select>
+</label><br>
+<label> Birthday: 
+  <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>">
+</label><br>
+<label> Description:<br>
+  <textarea name="cat[description]"><%= cat.description %></textarea>
+</label><br>
